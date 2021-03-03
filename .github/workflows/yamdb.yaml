@@ -41,3 +41,20 @@ jobs:
         with:
           push: true
           tags: gilions/yamdb:latest
+  deploy:
+    reuns-on: ubuntu-latest
+    needs: build_and_push_to_docker_hub
+    steeps:
+      - name: executing remote ssh commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+          sudo docker pull ${{ secrets.USER }}/yamdb
+          id=$(docker create ${{ secrets.USER }}/yamdb)
+          sudo docker cp $id:/code/docker-compose.yaml ~/code/docker-compose.yaml
+          cd ~/code
+          sudo docker-compose rm -v
+          sudo docker-compose up -d --force-recreate
