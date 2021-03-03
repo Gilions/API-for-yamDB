@@ -40,7 +40,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: gilions/yamdb:latest
+          tags: ${{ secrets.USER }}/yamdb
   deploy:
     reuns-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
