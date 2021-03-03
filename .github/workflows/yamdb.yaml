@@ -52,8 +52,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-              sudo docker pull ${{ secrets.USER }}/yamdb:latest
-              id=$(docker create ${{ secrets.USER }}/yamdb)
+              sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb:latest
+              id=$(docker create ${{ secrets.DOCKER_USERNAME }}/yamdb)
               sudo docker cp $id:/code/docker-compose.yaml ~/code/docker-compose.yaml
               cd ~/code
               sudo docker-compose rm -v
