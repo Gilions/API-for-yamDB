@@ -52,9 +52,9 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo docker pull ${{ secrets.USER }}/yamdb
-            id=$(docker create ${{ secrets.USER }}/yamdb)
-            sudo docker cp $id:/code/docker-compose.yaml ~/code/docker-compose.yaml
-            cd ~/code
-            sudo docker-compose rm -v
-            sudo docker-compose up -d --force-recreate
+              sudo docker pull ${{ secrets.USER }}/yamdb
+              id=$(docker create ${{ secrets.USER }}/yamdb)
+              sudo docker cp $id:/code/docker-compose.yaml ~/code/docker-compose.yaml
+              cd ~/code
+              sudo docker-compose rm -v
+              sudo docker-compose up -d --force-recreate
