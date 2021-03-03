@@ -3,6 +3,7 @@ volumes:
     postgres_data:
     static:
     media:
+    nginx_conf:
 services:
     db:
         image: postgres:12.4
@@ -11,11 +12,12 @@ services:
         env_file:
             - ./.env
     web:
-        image: gilions/yamdb:v1.2
+        image: gilions/yamdb
         restart: always
         volumes:
             - static:/code/static
             - media:/code/media
+            - nginx_conf:/code/nginx/
         ports:
             - "8000:8000"
         depends_on:
@@ -24,10 +26,11 @@ services:
             - ./.env
 
     nginx:
-        build: ./nginx
+        image: nginx:1.19.7-alpine
         volumes:
             - static:/code/static
             - media:/code/media
+            - nginx_conf:/etc/nginx/conf.d/
         restart: always
         ports:
             - "80:80"
