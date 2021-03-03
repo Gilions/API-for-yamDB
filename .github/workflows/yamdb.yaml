@@ -28,9 +28,9 @@ jobs:
     steps:
       - name: Setings SSH remote
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1
-          with:
-            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-            ssh-host: ${{ secrets.SSH_HOST }}
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-host: ${{ secrets.SSH_HOST }}
         run: |
           sudo pip install docker-compose
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
