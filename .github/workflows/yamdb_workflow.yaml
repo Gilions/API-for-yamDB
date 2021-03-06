@@ -52,9 +52,8 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
               sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb:latest
-              cd ~/code
-              sudo docker-compose rm -v
-              sudo docker-compose up -d --force-recreate
+              sudo docker-compose -f ~/code/docker-compose.yaml rm -v
+              sudo docker-compose -f ~/code/docker-compose.yaml up -d --force-recreate
 
   send_message:
     runs-on: ubuntu-latest
