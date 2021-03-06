@@ -21,10 +21,11 @@ services:
     env_file:
         - ./.env
   nginx:
-    image: gilions/nginx
+    image: nginx:1.19.7-alpine
     volumes:
         - static:/code/static
         - media:/code/media
+        - ./nginx:/etc/nginx/conf.d/
     restart: always
     ports:
         - "80:80"
