@@ -1,38 +1,32 @@
-version: '3.8'
+version: "3.8"
 volumes:
-    postgres_data:
-    static:
-    media:
-    nginx_conf:
+  postgres_data:
+  static:
+  media:
 services:
-    db:
-        image: postgres:12.4
-        volumes:
-            - postgres_data:/var/lib/postgresql/data/
-        env_file:
-            - ./.env
-    web:
-        image: gilions/yamdb
-        restart: always
-        volumes:
-            - static:/code/static
-            - media:/code/media
-            - nginx_conf:/code/nginx/
-        ports:
-            - "8000:8000"
-        depends_on:
-            - db
-        env_file:
-            - ./.env
-
-    nginx:
-        image: nginx:1.19.7-alpine
-        volumes:
-            - static:/code/static
-            - media:/code/media
-            - nginx_conf:/etc/nginx/conf.d/
-        restart: always
-        ports:
-            - "80:80"
-        depends_on:
-            - web
+  db:
+    image: postgres:12.4
+    volumes:
+        - postgres_data:/var/lib/postgresql/data/
+    env_file:
+        - ./.env
+  web:
+    image: gilions/yamdb
+    restart: always
+    volumes:
+        - static:/code/static
+        - media:/code/media
+    depends_on:
+        - db
+    env_file:
+        - ./.env
+  nginx:
+    image: gilions/nginx
+    volumes:
+        - static:/code/static
+        - media:/code/media
+    restart: always
+    ports:
+        - "80:80"
+    depends_on:
+        - web
