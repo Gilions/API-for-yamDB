@@ -14,7 +14,6 @@ services:
     image: gilions/yamdb
     restart: always
     volumes:
-        - static:/code/static
         - media:/code/media
     depends_on:
         - db
