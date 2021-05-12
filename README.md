@@ -1,6 +1,12 @@
-# API для Yatube
+# API для YAMDB
+
 CI/CD API for Yatube
 ![yamdb_final](https://github.com/Gilions/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)
+
+
+API для базы данных YAMDB, база данных содержит оставленные комментарии о фильмах, книгах и музыке. 
+
+Формирует средний рейтинг произведений.
 
 Данный проект разрабатывался в рамках обучающей программы курсов Yandex Практикум.
 Цель данного проекта, изучить возможность REST API
