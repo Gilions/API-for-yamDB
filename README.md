@@ -1,6 +1,6 @@
 # API для YAMDB
 
-CI/CD API for Yatube
+CI/CD API for YAMDB
 ![yamdb_final](https://github.com/Gilions/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)
 
 
