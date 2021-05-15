@@ -18,7 +18,12 @@ API для базы данных YAMDB, база данных содержит �
 ## Системные требования
 ____
 
-Python 3, Django 3.0.5, REST API Framework
+- Python 3
+- Django 3.0.5
+- REST API Framework
+- NGINX + Gunicorn
+- Docker
+- PostgrSQL
 
 
 
