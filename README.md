@@ -62,17 +62,18 @@ ___
 
 ## Доступные методы
 ___
-`/api/v1/posts (GET, POST, PUT, PATCH, DELETE)`
+`/api/v1/titles/ (GET, POST)`
 
-`/api/v1/posts/<id> (GET, POST, PUT, PATCH, DELETE)`
+`/api/v1/titles/<id>/ (GET, POST, PUT, PATCH, DELETE)`
 
-`/api/v1/posts/<id>/comments (GET, POST, PUT, PATCH, DELETE)`
+`/api/v1/titles/<id>/reviews/ (GET, POST)`
 
-`/api/v1/posts/<id>/comments/<id> (GET, POST, PUT, PATCH, DELETE)`
+`/api/v1/titles/<id>/reviews/<id>/ (GET, POST, PUT, PATCH, DELETE)`
 
-`/api/v1/group/ (GET, POST)`
+`/api/v1/categories/ (GET, POST)`
 
-`/api/v1/follow/ (GET, POST)`
+`/api/v1/genres/ (GET, POST)`
+
 
 [Полная версия документация API](https://github.com/yandex-praktikum/api_yamdb/blob/master/static/redoc.yaml)
 ## Системные требования
