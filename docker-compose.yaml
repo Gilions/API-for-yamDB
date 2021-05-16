@@ -1,8 +1,9 @@
 version: "3.8"
 volumes:
-  postgres_data:
-  static:
-  media:
+    postgres_data:
+    nginx_conf:
+    media:
+    static:
 services:
   db:
     image: postgres:12.4
@@ -15,6 +16,8 @@ services:
     restart: always
     volumes:
         - media:/code/media
+        - nginx_conf:/code/nginx/
+        - static:/code/static
     depends_on:
         - db
     env_file:
@@ -24,7 +27,7 @@ services:
     volumes:
         - static:/code/static
         - media:/code/media
-        - ./nginx:/etc/nginx/conf.d/
+        - nginx_conf:/etc/nginx/conf.d/
     restart: always
     ports:
         - "80:80"
