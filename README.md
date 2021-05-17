@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="905" height="408" src="https://user-images.githubusercontent.com/68146917/118408929-8eaa3f80-b690-11eb-8bd9-07e98fcf5913.jpg">
+  <img width="700" height="323" src="https://user-images.githubusercontent.com/68146917/118408929-8eaa3f80-b690-11eb-8bd9-07e98fcf5913.jpg">
 </p>
 
 # API для YAMDB
